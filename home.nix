@@ -1,17 +1,20 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nixgl, ... }:
 
 {
-#  nixpkgs.config.allowUnfreePredicate = pkg:
-#    builtins.elem (lib.getName pkg) [
-#      # Add additional package names here
-#      "vscode"
-#    ];
-
   nixpkgs.config.allowUnfree = true;
 
   nix.package = pkgs.nix;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  nixGL.packages = import nixgl {
+    inherit pkgs;
+  };
+  nixGL.defaultWrapper = "nvidia";
+  nixGL.installScripts = [ "nvidia" ];
+
+  xsession.enable = true;
+  
+  news.display = "silent";
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "janis";
@@ -28,19 +31,21 @@
 
   fonts.fontconfig.enable = true;
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-    pkgs.htop
-    pkgs.unzip
-    pkgs.cowsay
-    pkgs.nerd-fonts.jetbrains-mono
-    pkgs.nodejs_24
-    pkgs.python313
-    pkgs.nnn
+  home.packages = with pkgs; [
+    htop
+    unzip
+    cowsay
+    nerd-fonts.jetbrains-mono
+    nodejs_24
+    python313
+    nnn
+    _1password-gui
+    _1password-cli
+    spotify
+    (config.lib.nixGL.wrap firefox)
+    (config.lib.nixGL.wrap thunderbird)
+    (config.lib.nixGL.wrap discord)
+    (config.lib.nixGL.wrap steam)
   ];
 
   home.sessionVariables = {
@@ -48,11 +53,50 @@
   };
 
   home.file = {
-    # ".tool-versions".source = ./sources/.tool-versions;
+    ".steam/steam.pipe" = {
+      enable = false;
+    };
+    ".cache/ibus" = {
+      enable = false;
+      recursive = true;
+    };
   };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # TODO: Find a way to support firefox and thunderbird with custom options AND gpu support
+  # programs.firefox = {
+  #   enable = true;
+  #   package = (config.lib.nixGL.wrap pkgs.firefox);
+  #   profiles = {
+  #     janis = {
+  #       isDefault = true;
+  #     };
+  #   };
+  # };
+  # programs.thunderbird = {
+  #   enable = true;
+  #   package = (config.lib.nixGL.wrap pkgs.thunderbird);
+  #   profiles = {
+  #     janis = {
+  #       isDefault = true;
+  #     };
+  #   };
+  # };
+
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    mouse = true;
+    prefix = "C-a";
+    keyMode = "vi";
+    extraConfig = ''
+      bind o split-window -h
+      bind i split-window -v
+      unbind '"'
+      unbind %
+    '';
+  };
 
   programs.vscode = {
     enable = true;
@@ -79,15 +123,15 @@
 
           "vsicons.dontShowNewVersionMessage" = true;
       };
-      extensions = [
-        pkgs.vscode-extensions.tamasfe.even-better-toml
-        pkgs.vscode-extensions.jnoortheen.nix-ide
-        pkgs.vscode-extensions.zhuangtongfa.material-theme
-        pkgs.vscode-extensions.esbenp.prettier-vscode
-        pkgs.vscode-extensions.vscode-icons-team.vscode-icons
-        pkgs.vscode-extensions.github.vscode-github-actions
-        pkgs.vscode-extensions.github.copilot
-        pkgs.vscode-extensions.eamodio.gitlens
+      extensions = with pkgs.vscode-extensions; [
+        tamasfe.even-better-toml
+        jnoortheen.nix-ide
+        zhuangtongfa.material-theme
+        esbenp.prettier-vscode
+        vscode-icons-team.vscode-icons
+        github.vscode-github-actions
+        github.copilot
+        eamodio.gitlens
       ];
       keybindings = [
         {
@@ -121,6 +165,11 @@
       plugins = [ "git" "asdf" ];
       theme = "robbyrussell";
     };
+    initContent = lib.mkOrder 1000 ''
+      alias ll='ls -la'
+      alias switch='home-manager switch --impure --flake ~/.#janis'
+      echo "welcome :)"
+    '';
   };
 
   programs.git = {
