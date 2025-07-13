@@ -43,6 +43,7 @@
     _1password-gui
     _1password-cli
     spotify
+    audacity
     (config.lib.nixGL.wrap firefox)
     (config.lib.nixGL.wrap thunderbird)
     (config.lib.nixGL.wrap steam)
