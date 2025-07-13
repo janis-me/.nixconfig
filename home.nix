@@ -11,6 +11,7 @@
   };
   nixGL.defaultWrapper = "nvidia";
   nixGL.installScripts = [ "nvidia" ];
+  nixGL.vulkan.enable = true;
 
   xsession.enable = true;
   
@@ -44,17 +45,20 @@
     spotify
     (config.lib.nixGL.wrap firefox)
     (config.lib.nixGL.wrap thunderbird)
-    (config.lib.nixGL.wrap discord)
     (config.lib.nixGL.wrap steam)
+    (config.lib.nixGL.wrap gdlauncher-carbon)
+    (config.lib.nixGL.wrap discord)
   ];
 
   home.sessionVariables = {
     EDITOR = "code";
   };
 
+  # TODO: Find a way to ignore the steam.pipe file and whatever is in the ibus cache.
   home.file = {
     ".steam/steam.pipe" = {
       enable = false;
+      target = ".steam/steam.pipe";
     };
     ".cache/ibus" = {
       enable = false;
@@ -167,7 +171,7 @@
     };
     initContent = lib.mkOrder 1000 ''
       alias ll='ls -la'
-      alias switch='home-manager switch --impure --flake ~/.#janis'
+      alias switch='home-manager switch --impure --flake ~/.nixconfig/.#janis'
       echo "welcome :)"
     '';
   };
