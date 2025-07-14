@@ -8,7 +8,7 @@ I used this to easily setup and maintain my linux (ubuntu) systems. Per-system c
 ## setup
 
 First, clone this folder to `~/.nixconfig`.
-Make sure to install nix as a multi-user installation, then, you should be able to run `nix run home-manager/master switch --impure --flake ~/.nixconfig/.#default`.
+Make sure to install nix as a multi-user installation, then, you should be able to run `nix run home-manager/master switch -- --impure --flake ~/.nixconfig/.#default`.
 
 This will
 
@@ -18,6 +18,12 @@ This will
   - pointing to the flake you previously pulled from git
 
 Note: You might need to add flex for experimental features `nix-command` and `flakes` to both the nix run command, and the `switch` one, so both flags two times.
+
+So, the whole command would be something like
+
+```bash
+nix run home-manager/master --extra-experimental-features nix-command --extra-experimental-features flakes switch -- --impure --flake ~/.nixconfig/.#default --extra-experimental-features nix-command --extra-experimental-features flakes
+```
 
 When that worked, you can now use `home-manager` or the `switch` command directly
 
