@@ -115,6 +115,8 @@
           "workbench.editor.wrapTabs" = true;
           "workbench.colorTheme" = "One Dark Pro Night Flat";
 
+          "git.enableSmartCommit" = true;
+
           # Error lense is too noisy for some files/types
           "errorLens.excludeBySource" = [ "cSpell" ];
           "errorLens.excludePatterns" = [ "**/*.{ts,tsx,js}" ];
