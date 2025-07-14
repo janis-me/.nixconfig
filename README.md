@@ -17,6 +17,13 @@ This will
   - using the `impure` flag to allow nvidia GPU drivers with NixGL and
   - pointing to the flake you previously pulled from git
 
-Note: You might need to add flex for experimental features `nix-command` and `flakes`
+Note: You might need to add flex for experimental features `nix-command` and `flakes` to both the nix run command, and the `switch` one, so both flags two times.
 
 When that worked, you can now use `home-manager` or the `switch` command directly
+
+Now, to allow apps to run with Nvidia driver support, you may need to disable some AppArmor flags, as all GUI apps will be sandboxed.
+Consider adding the folloing flag to a `/etc/sysctl.d` file, like `99-sysctl.conf`
+
+```sh
+kernel.apparmor_restrict_unprivileged_userns=0
+```
