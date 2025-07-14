@@ -117,6 +117,7 @@
 
           "git.enableSmartCommit" = true;
           "git.confirmSync" = false;
+          "git.autofetch" = true;
 
           # Error lense is too noisy for some files/types
           "errorLens.excludeBySource" = [ "cSpell" ];
