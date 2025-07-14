@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "janis.me nix/home-manager config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -19,16 +19,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixgl, ... }: let
+  outputs = { self, nixpkgs, home-manager, nixgl, ... }@inputs: let
     selectPkgs = system: import nixpkgs {
       inherit system;
     };
 
   in {
     homeConfigurations = {
-      janis = home-manager.lib.homeManagerConfiguration {
+      default = home-manager.lib.homeManagerConfiguration {
         pkgs = selectPkgs "x86_64-linux";
+
         extraSpecialArgs = {
+          inherit inputs;
           inherit nixgl;
         };
 
