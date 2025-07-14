@@ -342,8 +342,6 @@
         alias e='eza'
         alias switch='home-manager switch --impure --flake ~/.nixconfig/.#default'
         alias sync-obsidian='(cd ~/.obsidian && git pull && git add -A && git commit -m "$(date "+%A %W %Y %X")" && git push) &'
-
-        echo "welcome :)"
       '';
     };
 
