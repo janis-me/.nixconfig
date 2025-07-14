@@ -116,6 +116,7 @@
           "workbench.colorTheme" = "One Dark Pro Night Flat";
 
           "git.enableSmartCommit" = true;
+          "git.confirmSync" = false;
 
           # Error lense is too noisy for some files/types
           "errorLens.excludeBySource" = [ "cSpell" ];
