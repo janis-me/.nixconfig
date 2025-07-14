@@ -105,12 +105,11 @@
         enableUpdateCheck = true;
         userSettings = {
           "workbench.iconTheme" = "vscode-icons";
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          "vsicons.dontShowNewVersionMessage" = true;
 
           "terminal.integrated.fontFamily" = "JetBrainsMono NFP";
           "terminal.integrated.defaultProfile.linux" = "zsh";
 
-          "editor.formatOnSave" = true;
           "editor.stickyScroll.enabled" = true;
 
           "workbench.editor.wrapTabs" = true;
@@ -120,13 +119,26 @@
           "errorLens.excludeBySource" = [ "cSpell" ];
           "errorLens.excludePatterns" = [ "**/*.{ts,tsx,js}" ];
 
-          "vsicons.dontShowNewVersionMessage" = true;
+          # Formatter configs
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          "editor.formatOnSave" = true;
+          "editor.tabSize" = 2;
+          "editor.inlineSuggest.enabled" = true;
 
           "[xml]" = {
             "editor.defaultFormatter" = "redhat.vscode-xml";
           };
           "[yaml]" = {
             "editor.defaultFormatter" = "redhat.vscode-yaml";
+          };
+          "[nix]" = {
+            "editor.defaultFormatter" = "jnoortheen.nix-ide";
+          };
+          "[mdx]" = {
+            "editor.defaultFormatter" = "unifiedjs.vscode-mdx";
+          };
+          "[astro]" = {
+            "editor.defaultFormatter" = "astro-build.astro-vscode";
           };
         };
         extensions = with pkgs.vscode-extensions; [
@@ -143,6 +155,8 @@
           redhat.vscode-yaml
           redhat.vscode-xml
           rust-lang.rust-analyzer
+          unifiedjs.vscode-mdx
+          astro-build.astro-vscode
         ];
         keybindings = [
           {
@@ -325,7 +339,7 @@
         alias e='eza'
         alias switch='home-manager switch --impure --flake ~/.nixconfig/.#default'
         alias sync-obsidian='(cd ~/.obsidian && git pull && git add -A && git commit -m "$(date "+%A %W %Y %X")" && git push) &'
-        
+
         echo "welcome :)"
       '';
     };
