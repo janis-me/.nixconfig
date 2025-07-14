@@ -27,7 +27,9 @@
   # disabled to prevent issues when running home-manager for the first time
   news.display = "silent";
 
-  fonts.fontconfig.enable = true;
+  fonts.fontconfig = {
+    enable = true;
+  };
 
   home = {
     username = "janis";
@@ -60,11 +62,18 @@
       htop
       unzip
       cowsay
-      nerd-fonts.jetbrains-mono
       nnn
+      jq
+      eza
+      docker
+      # fonts
+      jetbrains-mono
+      fira-code
       # programming
       nodejs_24
       python313
+      rustc
+      rustup
       nixfmt-rfc-style
       # gui apps:
       _1password-gui
@@ -78,6 +87,7 @@
       (config.lib.nixGL.wrap steam)
       (config.lib.nixGL.wrap gdlauncher-carbon)
       (config.lib.nixGL.wrap discord)
+      (config.lib.nixGL.wrap warp-terminal)
     ];
   };
 
@@ -86,6 +96,7 @@
     home-manager.enable = true;
 
     vscode = {
+      package = (config.lib.nixGL.wrap pkgs.vscode);
       enable = true;
       mutableExtensionsDir = false;
 
@@ -267,10 +278,11 @@
           "git"
           "asdf"
         ];
-        theme = "robbyrussell";
+        theme = "agnoster";
       };
       initContent = lib.mkOrder 1000 ''
         alias ll='ls -la'
+        alias e='eza'
         alias switch='home-manager switch --impure --flake ~/.nixconfig/.#default'
         echo "welcome :)"
       '';
