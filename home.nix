@@ -250,6 +250,46 @@
 
     obsidian = {
       enable = true;
+      defaultSettings = {
+        corePlugins = [
+          "audio-recorder"
+          "backlink"
+          "bookmarks"
+          "canvas"
+          "command-palette"
+          "daily-notes"
+          "editor-status"
+          "file-explorer"
+          "file-recovery"
+          "global-search"
+          "graph"
+          "note-composer"
+          "outgoing-link"
+          "outline"
+          "page-preview"
+          "slides"
+          "sync"
+          "switcher"
+          "tag-pane"
+          "templates"
+          "word-count"
+        ];
+        appearance = {
+          "accentColor" = "#e68122";
+          "interfaceFontFamily" = "Fira Code";
+          "textFontFamily" = "Fira Code";
+        };
+      };
+      vaults = {
+        janis = {
+          enable = true;
+          target = ".obsidian/janis";
+        };
+        cognigy = {
+          enable = true;
+          target = ".obsidian/cognigy";
+        };
+      };
     };
 
     tmux = {
