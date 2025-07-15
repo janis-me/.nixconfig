@@ -6,6 +6,11 @@
   ...
 }:
 
+let
+  teams = pkgs.writeShellScriptBin "teams-for-linux" ''
+    exec ${pkgs.teams-for-linux}/bin/teams-for-linux --defaultURLHandler firefox
+  '';
+in
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -89,7 +94,7 @@
       (config.lib.nixGL.wrap discord)
       (config.lib.nixGL.wrap warp-terminal)
       (config.lib.nixGL.wrap libreoffice)
-      (config.lib.nixGL.wrap teams-for-linux)
+      (config.lib.nixGL.wrap teams)
       (config.lib.nixGL.wrap chromium)
     ];
   };
@@ -156,6 +161,7 @@
           vscode-icons-team.vscode-icons
           github.vscode-github-actions
           github.copilot
+          github.copilot-chat
           eamodio.gitlens
           usernamehw.errorlens
           ms-azuretools.vscode-docker
@@ -332,7 +338,6 @@
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      defaultKeymap = "vicmd";
       autocd = true;
       envExtra = ''
         setxkbmap eu
