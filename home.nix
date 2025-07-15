@@ -185,6 +185,10 @@ in
             "command" = "editor.action.duplicateSelection";
           }
           {
+            "key" = "ctrl+f4";
+            "command" = "workbench.action.closeActiveEditor";
+          }
+          {
             "key" = "ctrl+alt+g ctrl+alt+g";
             "command" = "gitlens.showGraphPage";
           }
