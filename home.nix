@@ -88,6 +88,9 @@
       (config.lib.nixGL.wrap gdlauncher-carbon)
       (config.lib.nixGL.wrap discord)
       (config.lib.nixGL.wrap warp-terminal)
+      (config.lib.nixGL.wrap libreoffice)
+      (config.lib.nixGL.wrap teams-for-linux)
+      (config.lib.nixGL.wrap chromium)
     ];
   };
 
