@@ -70,12 +70,12 @@ in
       nnn
       jq
       eza
-      docker
       # fonts
       jetbrains-mono
       fira-code
       # programming
       nodejs_24
+      pnpm
       python313
       rustc
       rustup

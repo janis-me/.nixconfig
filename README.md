@@ -37,3 +37,7 @@ kernel.apparmor_restrict_unprivileged_userns=0
 ```
 
 Also, to set the default shell to zsh, set the output of `which zsh` (something in the `.nix-profile` folder) as a valid shell in /etc/shells, and then set it as default with `chsh -s $(which zsh)`
+
+## Notes:
+
+- Docker is not supported/installed. Install it the usual way!
