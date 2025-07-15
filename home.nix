@@ -70,6 +70,7 @@ in
       nnn
       jq
       eza
+      xclip
       # fonts
       jetbrains-mono
       fira-code
@@ -323,18 +324,12 @@ in
       };
     };
 
-    tmux = {
+    zellij = {
       enable = true;
-      clock24 = true;
-      mouse = true;
-      prefix = "C-a";
-      keyMode = "vi";
-      extraConfig = ''
-        bind o split-window -h
-        bind i split-window -v
-        unbind '"'
-        unbind %
-      '';
+      enableZshIntegration = true;
+      settings = {
+        copy_command = "xclip -selection clipboard";
+      };
     };
 
     zsh = {
