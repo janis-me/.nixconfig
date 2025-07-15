@@ -332,7 +332,11 @@
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      defaultKeymap = "vicmd";
       autocd = true;
+      envExtra = ''
+        setxkbmap eu
+      '';
       oh-my-zsh = {
         enable = true;
         plugins = [
