@@ -6,11 +6,6 @@
   ...
 }:
 
-let
-  teams = pkgs.writeShellScriptBin "teams-for-linux" ''
-    exec ${pkgs.teams-for-linux}/bin/teams-for-linux --defaultURLHandler firefox
-  '';
-in
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -90,13 +85,13 @@ in
       # TODO: Find a way to support firefox and thunderbird with custom options AND gpu support
       (config.lib.nixGL.wrap firefox)
       (config.lib.nixGL.wrap thunderbird)
-      (config.lib.nixGL.wrap steam)
-      (config.lib.nixGL.wrap gdlauncher-carbon)
-      (config.lib.nixGL.wrap discord)
-      (config.lib.nixGL.wrap warp-terminal)
+      # (config.lib.nixGL.wrap steam)
+      # (config.lib.nixGL.wrap gdlauncher-carbon)
+      # (config.lib.nixGL.wrap discord)
+      # (config.lib.nixGL.wrap warp-terminal)
       (config.lib.nixGL.wrap libreoffice)
-      (config.lib.nixGL.wrap teams)
-      (config.lib.nixGL.wrap chromium)
+      (config.lib.nixGL.wrap teams-for-linux)
+      # (config.lib.nixGL.wrap chromium)
     ];
   };
 
@@ -329,6 +324,7 @@ in
       enableZshIntegration = true;
       settings = {
         copy_command = "xclip -selection clipboard";
+        show_startup_tips = false;
       };
     };
 
