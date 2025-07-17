@@ -165,6 +165,9 @@
           redhat.vscode-xml
           rust-lang.rust-analyzer
           unifiedjs.vscode-mdx
+          mechatroner.rainbow-csv
+          ReprEng.csv
+          maptz.camelcasenavigation
           astro-build.astro-vscode
         ];
         keybindings = [
