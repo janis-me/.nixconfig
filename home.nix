@@ -16,12 +16,14 @@
   ];
 
   nixGL = {
-    packages = import nixgl {
-      inherit pkgs;
-    };
-    defaultWrapper = "nvidia";
-    installScripts = [ "nvidia" ];
-    vulkan.enable = true;
+    packages = import nixgl { inherit pkgs; };
+
+    defaultWrapper = "nvidiaPrime";
+    installScripts = [
+      "nvidia"
+      "nvidiaPrime"
+    ];
+    prime.card = "2";
   };
 
   # disabled to prevent issues when running home-manager for the first time
@@ -81,9 +83,9 @@
       _1password-cli
       spotify
       audacity
+      libva-utils
       # Programs below are wrapped with nixGL to support OpenGL and Vulkan applications
       # TODO: Find a way to support firefox and thunderbird with custom options AND gpu support
-      (config.lib.nixGL.wrap firefox)
       (config.lib.nixGL.wrap thunderbird)
       # (config.lib.nixGL.wrap steam)
       # (config.lib.nixGL.wrap gdlauncher-carbon)
@@ -98,6 +100,14 @@
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
+
+    firefox = {
+      enable = true;
+      package = (config.lib.nixGL.wrap pkgs.firefox-bin);
+      nativeMessagingHosts = [
+        pkgs.firefoxpwa
+      ];
+    };
 
     vscode = {
       package = (config.lib.nixGL.wrap pkgs.vscode);
@@ -166,8 +176,6 @@
           rust-lang.rust-analyzer
           unifiedjs.vscode-mdx
           mechatroner.rainbow-csv
-          ReprEng.csv
-          maptz.camelcasenavigation
           astro-build.astro-vscode
         ];
         keybindings = [

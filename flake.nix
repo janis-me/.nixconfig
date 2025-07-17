@@ -2,8 +2,8 @@
   description = "janis.me nix/home-manager config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     # home-manager's repository
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,29 +15,40 @@
     # openGL-related libraries under Nix's management
     nixgl = {
       url = "github:nix-community/nixgl";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixgl, ... }@inputs: let
-    selectPkgs = system: import nixpkgs {
-      inherit system;
-    };
-
-  in {
-    homeConfigurations = {
-      default = home-manager.lib.homeManagerConfiguration {
-        pkgs = selectPkgs "x86_64-linux";
-
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit nixgl;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nixgl,
+      ...
+    }@inputs:
+    let
+      selectPkgs =
+        system:
+        import nixpkgs {
+          inherit system;
+          overlays = [ nixgl.overlay ];
         };
 
-        modules = [
-          ./home.nix
-        ];
+    in
+    {
+      homeConfigurations = {
+        default = home-manager.lib.homeManagerConfiguration {
+          pkgs = selectPkgs "x86_64-linux";
+
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit nixgl;
+          };
+
+          modules = [
+            ./home.nix
+          ];
+        };
       };
     };
-  };
 }
