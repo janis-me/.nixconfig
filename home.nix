@@ -336,6 +336,10 @@
       settings = {
         copy_command = "xclip -selection clipboard";
         show_startup_tips = false;
+        simplified_ui = true;
+        default_shell = "zsh";
+        default_mode = "locked";
+        theme = "onedark";
       };
     };
 
