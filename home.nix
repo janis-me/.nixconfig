@@ -333,6 +333,7 @@
     zellij = {
       enable = true;
       enableZshIntegration = true;
+      attachExistingSession = true;
       settings = {
         copy_command = "xclip -selection clipboard";
         show_startup_tips = false;
@@ -340,6 +341,117 @@
         default_shell = "zsh";
         default_mode = "locked";
         theme = "onedark";
+        default_layout = "janis";
+      };
+      layouts = {
+        janis = {
+          layout = {
+            _children = [
+              {
+                default_tab_template = {
+                  _children = [
+                    {
+                      pane = {
+                        size = 1;
+                        borderless = true;
+                        plugin = {
+                          location = "zellij:tab-bar";
+                        };
+                      };
+                    }
+                    { "children" = { }; }
+                    {
+                      pane = {
+                        size = 1;
+                        borderless = true;
+                        plugin = {
+                          location = "zellij:status-bar";
+                        };
+                      };
+                    }
+                  ];
+                };
+              }
+              {
+                tab = {
+                  _props = {
+                    name = "main";
+                    split_direction = "vertical";
+                  };
+                  _children = [
+                    {
+                      pane = {
+                        _props = {
+                          size = "20%";
+                          name = "files";
+                          cwd = "/";
+                        };
+                        plugin = {
+                          cwd = "/";
+                          location = "zellij:strider";
+                        };
+                      };
+                    }
+                    {
+                      pane = {
+                        _props = {
+                          size = "80%";
+                          name = "zsh";
+                        };
+                        command = "zsh";
+                      };
+                    }
+                  ];
+                };
+              }
+              {
+                tab = {
+                  _props = {
+                    name = "git";
+                  };
+                  _children = [
+                    {
+                      pane = {
+                        _props = {
+                          name = "lazygit";
+                        };
+                        command = "zsh";
+                      };
+                    }
+                  ];
+                };
+              }
+              {
+                tab = {
+                  _props = {
+                    name = "sys";
+                    split_direction = "horizontal";
+                  };
+                  _children = [
+                    {
+                      pane = {
+                        _props = {
+                          name = "htop";
+                          size = "60%";
+                        };
+                        command = "htop";
+                      };
+                    }
+                    {
+                      pane = {
+                        _props = {
+                          name = "nvidia";
+                          size = "40%";
+                        };
+                        command = "/bin/bash";
+                      };
+                    }
+                  ];
+                };
+              }
+            ];
+          };
+        };
       };
     };
 
