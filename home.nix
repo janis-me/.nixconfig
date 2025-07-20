@@ -330,6 +330,10 @@
       };
     };
 
+    lazygit = {
+      enable = true;
+    };
+
     zellij = {
       enable = true;
       enableZshIntegration = true;
