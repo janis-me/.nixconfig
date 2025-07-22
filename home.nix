@@ -343,7 +343,6 @@
         show_startup_tips = false;
         simplified_ui = true;
         default_shell = "zsh";
-        default_mode = "locked";
         theme = "onedark";
         default_layout = "janis";
       };
@@ -447,7 +446,7 @@
                           name = "nvidia";
                           size = "40%";
                         };
-                        command = "/bin/bash";
+                        command = "zsh";
                       };
                     }
                   ];
