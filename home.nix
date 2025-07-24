@@ -109,6 +109,10 @@
       ];
     };
 
+    keepassxc = {
+      enable = true;
+    };
+
     vscode = {
       package = (config.lib.nixGL.wrap pkgs.vscode);
       enable = true;
