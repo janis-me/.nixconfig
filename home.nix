@@ -340,8 +340,8 @@
 
     zellij = {
       enable = true;
-      enableZshIntegration = true;
-      attachExistingSession = true;
+      # enableZshIntegration = true;
+      # attachExistingSession = true;
       settings = {
         copy_command = "xclip -selection clipboard";
         show_startup_tips = false;
