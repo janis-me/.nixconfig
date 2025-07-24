@@ -462,6 +462,15 @@
       };
     };
 
+    bat = {
+      enable = true;
+    };
+
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -476,6 +485,7 @@
         plugins = [
           "git"
           "eza"
+          "fzf"
           "nvm"
           "npm"
           "helm"
@@ -489,6 +499,8 @@
         alias switch='home-manager switch --impure --flake ~/.nixconfig/.#default'
         alias sync-obsidian='(cd ~/.obsidian && git pull && git add -A && git commit -m "$(date "+%A %W %Y %X")" && git push) &'
         alias tree="l -TR"
+        alias cat="bat -p"
+        alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
         # Cognigy config:
         alias deploy='~/Documents/code/cognigy/scripts/deploy.sh'
