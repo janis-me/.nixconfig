@@ -29,10 +29,6 @@
   # disabled to prevent issues when running home-manager for the first time
   news.display = "silent";
 
-  fonts.fontconfig = {
-    enable = true;
-  };
-
   home = {
     username = "janis";
     homeDirectory = "/home/janis";
@@ -66,11 +62,10 @@
       cowsay
       nnn
       jq
-      eza
       xclip
       # fonts
-      jetbrains-mono
-      fira-code
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
       # programming
       nodejs_24
       pnpm
@@ -338,6 +333,11 @@
       enable = true;
     };
 
+    eza = {
+      enable = true;
+      icons = "auto";
+    };
+
     zellij = {
       enable = true;
       # enableZshIntegration = true;
@@ -441,7 +441,7 @@
                           name = "htop";
                           size = "60%";
                         };
-                        command = "htop";
+                        command = "zsh";
                       };
                     }
                     {
@@ -475,15 +475,24 @@
         enable = true;
         plugins = [
           "git"
-          "asdf"
+          "eza"
+          "nvm"
+          "npm"
+          "helm"
+          "kubectl"
+          "docker"
+          ""
         ];
         theme = "agnoster";
       };
       initContent = lib.mkOrder 1000 ''
-        alias ll='ls -la'
-        alias e='eza'
         alias switch='home-manager switch --impure --flake ~/.nixconfig/.#default'
         alias sync-obsidian='(cd ~/.obsidian && git pull && git add -A && git commit -m "$(date "+%A %W %Y %X")" && git push) &'
+        alias tree="l -TR"
+
+        # Cognigy config:
+        alias deploy='~/Documents/code/cognigy/scripts/deploy.sh'
+        alias destroy='~/Documents/code/cognigy/scripts/destroy.sh'
       '';
     };
 
