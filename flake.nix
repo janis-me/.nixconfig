@@ -14,7 +14,7 @@
     # nixGL is required if you're not in NixOS, so that packages can refer to
     # openGL-related libraries under Nix's management
     nixgl = {
-      url = "github:nix-community/nixgl";
+      url = "github:nix-community/nixGL/pull/187/head";
     };
   };
 
