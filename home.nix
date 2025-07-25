@@ -67,9 +67,6 @@
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
       # programming
-      nodejs_24
-      pnpm
-      python313
       rustc
       rustup
       nixfmt-rfc-style
