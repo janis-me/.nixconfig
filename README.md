@@ -5,6 +5,12 @@ I used this to easily setup and maintain my linux (ubuntu) systems. Per-system c
 - the primary graphics cards is not an NVIDIA one, or when wanting to use offload gpu config with PRIME
 - The system is not `x86_64-linux` (see flake.nix)
 
+## Tools not installed via nix:
+
+- docker
+- node / python
+- nvm (use the default install script)
+
 ## setup
 
 First, clone this folder to `~/.nixconfig`.

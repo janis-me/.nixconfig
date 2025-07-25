@@ -493,6 +493,9 @@
         theme = "agnoster";
       };
       initContent = lib.mkOrder 1000 ''
+        export NVM_DIR="$([ -z "''${XDG_CONFIG_HOME-}" ] && printf %s "''${HOME}/.nvm" || printf %s "''${XDG_CONFIG_HOME}/nvm")"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
         alias switch='home-manager switch --impure --flake ~/.nixconfig/.#default'
         alias sync-obsidian='(cd ~/.obsidian && git pull && git add -A && git commit -m "$(date "+%A %W %Y %X")" && git push) &'
         alias tree="l -TR"
