@@ -134,14 +134,15 @@
           "git.autofetch" = true;
 
           # Error lense is too noisy for some files/types
-          "errorLens.excludeBySource" = [ "cSpell" ];
-          "errorLens.excludePatterns" = [ "**/*.{ts,tsx,js}" ];
+          # "errorLens.excludeBySource" = [ "cSpell" ];
+          # "errorLens.excludePatterns" = [ "**/*.{ts,tsx,js}" ];
 
           # Formatter configs
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
           "editor.formatOnSave" = true;
           "editor.tabSize" = 2;
           "editor.inlineSuggest.enabled" = true;
+          "editor.inlayHints.enabled" = "offUnlessPressed";
 
           "[xml]" = {
             "editor.defaultFormatter" = "redhat.vscode-xml";
@@ -169,7 +170,7 @@
           github.copilot
           github.copilot-chat
           eamodio.gitlens
-          usernamehw.errorlens
+          # usernamehw.errorlens
           ms-azuretools.vscode-docker
           redhat.vscode-yaml
           redhat.vscode-xml
