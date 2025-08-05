@@ -46,13 +46,17 @@
       EDITOR = "code";
     };
 
+    keyboard = {
+      layout = "eu";
+    };
+
     # TODO: Find a way to ignore the steam.pipe file and whatever is in the ibus cache.
     # TODO: Find a way to load settings.json file from within flake-based home-manager config
     file = {
-      # ".config/code/User/settings.json" = {
-      #   enable = true;
-      #   text = builtins.readFile "${src}/sources/vscode/settings.json";
-      # };
+      ".oh-my-custom/janis.zsh-theme" = {
+        enable = true;
+        source = ./sources/janis.zsh-theme;
+      };
     };
 
     packages = with pkgs; [
@@ -479,6 +483,7 @@
       '';
       oh-my-zsh = {
         enable = true;
+        custom = "$HOME/.oh-my-custom";
         plugins = [
           "git"
           "eza"
@@ -490,7 +495,7 @@
           "docker"
           ""
         ];
-        theme = "agnoster";
+        theme = "janis";
       };
       initContent = lib.mkOrder 1000 ''
         export NVM_DIR="$([ -z "''${XDG_CONFIG_HOME-}" ] && printf %s "''${HOME}/.nvm" || printf %s "''${XDG_CONFIG_HOME}/nvm")"
