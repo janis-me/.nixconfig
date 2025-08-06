@@ -74,6 +74,7 @@
       rustc
       rustup
       nixfmt-rfc-style
+      neofetch
       # gui apps:
       _1password-gui
       _1password-cli
