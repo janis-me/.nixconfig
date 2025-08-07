@@ -207,6 +207,36 @@
             "when" =
               "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor";
           }
+          {
+            "key" = "alt+right";
+            "command" = "cursorWordPartRight";
+            "when" = "editorTextFocus";
+          }
+          {
+            "key" = "alt+shift+right";
+            "command" = "cursorWordPartRightSelect";
+            "when" = "editorTextFocus";
+          }
+          {
+            "key" = "alt+left";
+            "command" = "cursorWordPartLeft";
+            "when" = "editorTextFocus";
+          }
+          {
+            "key" = "alt+shift+left";
+            "command" = "cursorWordPartLeftSelect";
+            "when" = "editorTextFocus";
+          }
+          {
+            "key" = "alt+backspace";
+            "command" = "deleteWordPartLeft";
+            "when" = "editorTextFocus && !editorReadonly";
+          }
+          {
+            "key" = "alt+delete";
+            "command" = "deleteWordPartRight";
+            "when" = "editorTextFocus && !editorReadonly";
+          }
         ];
         globalSnippets = {
           "functionalComponent" = {
