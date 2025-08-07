@@ -545,6 +545,29 @@
       '';
     };
 
+    rofi = {
+      enable = true;
+      package = pkgs.rofi;
+      font = "Fira Code";
+      modes = [
+        "drun"
+        "calc"
+        "emoji"
+        "filebrowser"
+        "window"
+        "run"
+      ];
+      plugins = [
+        pkgs.rofi-calc
+        pkgs.rofi-emoji
+        pkgs.rofi-obsidian
+      ];
+      extraConfig = {
+        kb-mode-next = "Alt+Tab";
+      };
+      theme = "Arc-Dark";
+    };
+
     git = {
       enable = true;
       userName = "Janis Jansen";
