@@ -160,6 +160,9 @@
           "[astro]" = {
             "editor.defaultFormatter" = "astro-build.astro-vscode";
           };
+          "[rust]" = {
+            "editor.defaultFormatter" = "rust-lang.rust-analyzer";
+          };
         };
         extensions = with pkgs.vscode-extensions; [
           tamasfe.even-better-toml
