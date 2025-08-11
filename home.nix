@@ -74,7 +74,6 @@
       rustc
       rustup
       nixfmt-rfc-style
-      neofetch
       # gui apps:
       _1password-gui
       _1password-cli
@@ -108,6 +107,81 @@
 
     keepassxc = {
       enable = true;
+    };
+
+    fastfetch = {
+      enable = true;
+      package = (config.lib.nixGL.wrap pkgs.fastfetch);
+      settings = {
+        logo = {
+          source = "nixos";
+          padding = {
+            right = 1;
+          };
+        };
+        display = {
+          size = {
+            binaryPrefix = "si";
+          };
+          color = "blue";
+          separator = "  ";
+        };
+        "modules" = [
+          "title"
+          "datetime"
+          "separator"
+          "os"
+          "host"
+          "bios"
+          "bootmgr"
+          "kernel"
+          "initsystem"
+          "uptime"
+          "processes"
+          "packages"
+          "shell"
+          "editor"
+          "separator"
+          {
+            "type" = "cpu";
+            "showPeCoreCount" = true;
+            "temp" = true;
+          }
+          "cpucache"
+          "cpuusage"
+          "separator"
+          {
+            "type" = "gpu";
+            "driverSpecific" = true;
+            "temp" = true;
+          }
+          "separator"
+          "memory"
+          "physicalmemory"
+          "disk"
+          {
+            "type" = "battery";
+            "temp" = true;
+          }
+          "separator"
+          "dns"
+          {
+            "type" = "localip";
+            "showIpv6" = true;
+            "showMac" = true;
+            "showSpeed" = true;
+            "showMtu" = true;
+            "showLoop" = true;
+            "showFlags" = true;
+            "showAllIps" = true;
+          }
+          "vulkan"
+          "opengl"
+          "tpm"
+          "version"
+          "colors"
+        ];
+      };
     };
 
     vscode = {
@@ -539,6 +613,7 @@
         alias switch='home-manager switch --impure --flake ~/.nixconfig/.#default'
         alias sync-obsidian='(cd ~/.obsidian && git pull && git add -A && git commit -m "$(date "+%A %W %Y %X")" && git push) &'
         alias tree="l -TR"
+        alias ff="fastfetch"
         alias cat="bat -p"
         alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
