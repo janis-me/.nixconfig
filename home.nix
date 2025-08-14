@@ -16,14 +16,12 @@
   ];
 
   nixGL = {
-    packages = import nixgl { inherit pkgs; };
-
-    defaultWrapper = "nvidiaPrime";
-    installScripts = [
-      "nvidia"
-      "nvidiaPrime"
-    ];
-    prime.card = "2";
+    packages = import nixgl {
+      inherit pkgs;
+    };
+    defaultWrapper = "nvidia";
+    installScripts = [ "nvidia" ];
+    vulkan.enable = true;
   };
 
   # disabled to prevent issues when running home-manager for the first time
@@ -83,9 +81,9 @@
       # Programs below are wrapped with nixGL to support OpenGL and Vulkan applications
       # TODO: Find a way to support firefox and thunderbird with custom options AND gpu support
       (config.lib.nixGL.wrap thunderbird)
-      # (config.lib.nixGL.wrap steam)
-      # (config.lib.nixGL.wrap gdlauncher-carbon)
-      # (config.lib.nixGL.wrap discord)
+      (config.lib.nixGL.wrap steam)
+      (config.lib.nixGL.wrap gdlauncher-carbon)
+      (config.lib.nixGL.wrap discord)
       # (config.lib.nixGL.wrap warp-terminal)
       (config.lib.nixGL.wrap libreoffice)
       (config.lib.nixGL.wrap teams-for-linux)
@@ -236,6 +234,9 @@
           };
           "[rust]" = {
             "editor.defaultFormatter" = "rust-lang.rust-analyzer";
+          };
+          "[toml]" = {
+            "editor.defaultFormatter" = "tamasfe.even-better-toml";
           };
         };
         extensions = with pkgs.vscode-extensions; [
