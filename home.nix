@@ -79,6 +79,7 @@
       spotify
       audacity
       libva-utils
+      pgadmin4
       # Programs below are wrapped with nixGL to support OpenGL and Vulkan applications
       # TODO: Find a way to support firefox and thunderbird with custom options AND gpu support
       (config.lib.nixGL.wrap thunderbird)
