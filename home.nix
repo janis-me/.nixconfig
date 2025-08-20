@@ -73,6 +73,7 @@
       rustup
       nixfmt-rfc-style
       azure-cli
+      snyk
       # gui apps:
       _1password-gui
       _1password-cli
@@ -209,8 +210,19 @@
           "git.autofetch" = true;
 
           # Error lense is too noisy for some files/types
-          # "errorLens.excludeBySource" = [ "cSpell" ];
-          # "errorLens.excludePatterns" = [ "**/*.{ts,tsx,js}" ];
+          "errorLens.excludeBySource" = [ "cSpell" ];
+          "errorLens.messageBackgroundMode" = "message";
+          "errorLens.gutterIconsEnabled" = true;
+          "errorLens.gutterIconSet" = "squareRounded";
+          "errorLens.border" = [
+            "1px dotted"
+            "1px dotted"
+            "1px dotted"
+            "1px dotted"
+          ];
+          "errorLens.padding" = "2px 0.4ch";
+          "errorLens.followCursor" = "closestProblem";
+          "errorLens.followCursorMore" = 1;
 
           # Formatter configs
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
@@ -251,7 +263,7 @@
           github.copilot
           github.copilot-chat
           eamodio.gitlens
-          # usernamehw.errorlens
+          usernamehw.errorlens
           ms-azuretools.vscode-docker
           redhat.vscode-yaml
           redhat.vscode-xml
