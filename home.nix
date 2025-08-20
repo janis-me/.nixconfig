@@ -223,6 +223,7 @@
           "errorLens.padding" = "2px 0.4ch";
           "errorLens.followCursor" = "closestProblem";
           "errorLens.followCursorMore" = 1;
+          "errorLens.scrollbarHackEnabled" = true;
 
           # Formatter configs
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
