@@ -221,9 +221,21 @@
             "1px dotted"
           ];
           "errorLens.padding" = "2px 0.4ch";
-          "errorLens.followCursor" = "closestProblem";
-          "errorLens.followCursorMore" = 1;
-          "errorLens.scrollbarHackEnabled" = true;
+          # "errorLens.followCursor" = "closestProblem";
+          # "errorLens.followCursorMore" = 3;
+          "errorLens.alignMessage" = {
+            "start" = 120;
+            "end" = 0;
+            "padding" = [
+              0
+              0.5
+            ];
+          };
+          "errorLens.editorHoverPartsEnabled" = {
+            "messageEnabled" = true;
+            "sourceCodeEnabled" = true;
+            "buttonsEnabled" = false;
+          };
 
           # Formatter configs
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
