@@ -59,7 +59,6 @@
 
     packages = with pkgs; [
       # cli / terminal
-      htop
       unzip
       cowsay
       nnn
@@ -197,7 +196,6 @@
           "workbench.iconTheme" = "vscode-icons";
           "vsicons.dontShowNewVersionMessage" = true;
 
-          "terminal.integrated.fontFamily" = "JetBrainsMono NFP";
           "terminal.integrated.defaultProfile.linux" = "zsh";
 
           "editor.stickyScroll.enabled" = true;
@@ -560,7 +558,11 @@
                         _props = {
                           name = "lazygit";
                         };
-                        command = "zsh";
+                        command = "lazygit";
+                        args = [
+                          "-p"
+                          "/home/janis/code/cognigy/cognigy"
+                        ];
                       };
                     }
                   ];
@@ -576,10 +578,10 @@
                     {
                       pane = {
                         _props = {
-                          name = "htop";
+                          name = "btop";
                           size = "60%";
                         };
-                        command = "zsh";
+                        command = "btop";
                       };
                     }
                     {
@@ -588,7 +590,8 @@
                           name = "nvidia";
                           size = "40%";
                         };
-                        command = "zsh";
+                        command = "watch";
+                        args = [ "nvidia-smi" ];
                       };
                     }
                   ];
@@ -650,6 +653,17 @@
         alias hu="cd ~/Documents/code/cognigy/cognigy-ai-app && helm upgrade --install --create-namespace --namespace cognigy-ai --values values-local.out.yaml cognigy-ai ."
         alias destroy='~/Documents/code/cognigy/scripts/destroy.sh'
       '';
+    };
+
+    btop = {
+      enable = true;
+      package = (config.lib.nixGL.wrap pkgs.btop);
+      settings = {
+        color_theme = "Default";
+        theme_background = false;
+        presets = "gpu0:0:default,cpu:0:default,proc:0:default";
+        shown_boxes = "cpu gpu0 proc mem net";
+      };
     };
 
     rofi = {
