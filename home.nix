@@ -210,8 +210,6 @@
           # Error lense is too noisy for some files/types
           "errorLens.excludeBySource" = [ "cSpell" ];
           "errorLens.messageBackgroundMode" = "message";
-          "errorLens.gutterIconsEnabled" = true;
-          "errorLens.gutterIconSet" = "squareRounded";
           "errorLens.border" = [
             "1px dotted"
             "1px dotted"
