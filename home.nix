@@ -647,9 +647,9 @@
         alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
         # Cognigy config:
-        alias deploy='~/Documents/code/cognigy/scripts/deploy.sh'
-        alias hu="cd ~/Documents/code/cognigy/cognigy-ai-app && helm upgrade --install --create-namespace --namespace cognigy-ai --values values-local.out.yaml cognigy-ai ."
-        alias destroy='~/Documents/code/cognigy/scripts/destroy.sh'
+        alias deploy='~/code/cognigy/scripts/deploy.sh'
+        alias hu="cd ~/code/cognigy/cognigy-ai-app && helm upgrade --install --create-namespace --namespace cognigy-ai --values values-local.out.yaml cognigy-ai ."
+        alias destroy='~/code/cognigy/scripts/destroy.sh'
       '';
     };
 
