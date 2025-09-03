@@ -64,6 +64,7 @@
       nnn
       jq
       xclip
+      ffmpeg
       # fonts
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
@@ -89,6 +90,8 @@
       # (config.lib.nixGL.wrap warp-terminal)
       (config.lib.nixGL.wrap libreoffice)
       (config.lib.nixGL.wrap teams-for-linux)
+      (config.lib.nixGL.wrap postman)
+      (config.lib.nixGL.wrap obs-studio)
       # (config.lib.nixGL.wrap chromium)
     ];
   };
@@ -396,14 +399,6 @@
             "description" = "Imports and exports a component based on the parent folder name";
             "scope" = "typescript,typescriptreact,javascript,javascriptreact";
           };
-          "penguinImportStyles" = {
-            "prefix" = "pens";
-            "body" = [
-              "@use '@dive-solutions/penguin/scss/\${1:colors}';"
-            ];
-            "description" = "Adds an import for a penguin scss file, 'colors' by default";
-            "scope" = "scss,css";
-          };
           "classForFunctionalComponent" = {
             "prefix" = "fcc";
             "body" = [
@@ -631,7 +626,6 @@
           "helm"
           "kubectl"
           "docker"
-          ""
         ];
         theme = "janis";
       };
@@ -648,7 +642,7 @@
 
         # Cognigy config:
         alias deploy='~/code/cognigy/scripts/deploy.sh'
-        alias hu="cd ~/code/cognigy/cognigy-ai-app && helm upgrade --install --create-namespace --namespace cognigy-ai --values values-local.out.yaml cognigy-ai ."
+        alias hu="cd ~/code/cognigy/cognigy-ai-app && helm upgrade --debug --install --create-namespace --namespace cognigy-ai --values values-local.out.yaml cognigy-ai ."
         alias destroy='~/code/cognigy/scripts/destroy.sh'
       '';
     };
