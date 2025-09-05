@@ -1007,7 +1007,7 @@
                       pane = {
                         _props = {
                           name = "btop";
-                          size = "60%";
+                          size = "70%";
                         };
                         command = "btop";
                       };
@@ -1016,7 +1016,7 @@
                       pane = {
                         _props = {
                           name = "nvidia";
-                          size = "40%";
+                          size = "30%";
                         };
                         command = "watch";
                         args = [ "nvidia-smi" ];
@@ -1076,7 +1076,6 @@
         alias sync-obsidian='(cd ~/.obsidian && git pull && git add -A && git commit -m "$(date "+%A %W %Y %X")" && git push) &'
         alias tree="l -TR"
         alias ff="fastfetch"
-        alias cat="bat -p"
         alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
         alias -g cat="bat"
