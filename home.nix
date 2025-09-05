@@ -200,6 +200,7 @@
           "vsicons.dontShowNewVersionMessage" = true;
 
           "terminal.integrated.defaultProfile.linux" = "zsh";
+          "terminal.integrated.persistentSessionReviveProcess" = "onExitAndWindowClose";
 
           "editor.stickyScroll.enabled" = true;
 
@@ -476,8 +477,424 @@
         show_startup_tips = false;
         simplified_ui = true;
         default_shell = "zsh";
-        theme = "onedark";
         default_layout = "janis";
+        themes = {
+          janis = {
+            text_unselected = {
+              base = [
+                204
+                204
+                204
+              ];
+              background = [
+                29
+                32
+                37
+              ];
+              emphasis_0 = [
+                209
+                154
+                102
+              ];
+              emphasis_1 = [
+                86
+                182
+                194
+              ];
+              emphasis_2 = [
+                152
+                195
+                121
+              ];
+              emphasis_3 = [
+                198
+                120
+                221
+              ];
+            };
+            text_selected = {
+              base = [
+                29
+                32
+                37
+              ];
+              background = [
+                204
+                204
+                204
+              ];
+              emphasis_0 = [
+                209
+                154
+                102
+              ];
+              emphasis_1 = [
+                86
+                182
+                194
+              ];
+              emphasis_2 = [
+                152
+                195
+                121
+              ];
+              emphasis_3 = [
+                198
+                120
+                221
+              ];
+            };
+            ribbon_selected = {
+              base = [
+                29
+                32
+                37
+              ];
+              background = [
+                152
+                195
+                121
+              ];
+              emphasis_0 = [
+                190
+                80
+                70
+              ];
+              emphasis_1 = [
+                209
+                154
+                102
+              ];
+              emphasis_2 = [
+                198
+                120
+                221
+              ];
+              emphasis_3 = [
+                97
+                175
+                239
+              ];
+            };
+            ribbon_unselected = {
+              base = [
+                29
+                32
+                37
+              ];
+              background = [
+                171
+                178
+                191
+              ];
+              emphasis_0 = [
+                190
+                80
+                70
+              ];
+              emphasis_1 = [
+                204
+                204
+                204
+              ];
+              emphasis_2 = [
+                97
+                175
+                239
+              ];
+              emphasis_3 = [
+                198
+                120
+                221
+              ];
+            };
+            table_title = {
+              base = [
+                152
+                195
+                121
+              ];
+              background = [ 0 ];
+              emphasis_0 = [
+                209
+                154
+                102
+              ];
+              emphasis_1 = [
+                86
+                182
+                194
+              ];
+              emphasis_2 = [
+                152
+                195
+                121
+              ];
+              emphasis_3 = [
+                198
+                120
+                221
+              ];
+            };
+            table_cell_selected = {
+              base = [
+                204
+                204
+                204
+              ];
+              background = [
+                40
+                44
+                52
+              ];
+              emphasis_0 = [
+                209
+                154
+                102
+              ];
+              emphasis_1 = [
+                86
+                182
+                194
+              ];
+              emphasis_2 = [
+                152
+                195
+                121
+              ];
+              emphasis_3 = [
+                198
+                120
+                221
+              ];
+            };
+            table_cell_unselected = {
+              base = [
+                204
+                204
+                204
+              ];
+              background = [
+                29
+                32
+                37
+              ];
+              emphasis_0 = [
+                209
+                154
+                102
+              ];
+              emphasis_1 = [
+                86
+                182
+                194
+              ];
+              emphasis_2 = [
+                152
+                195
+                121
+              ];
+              emphasis_3 = [
+                198
+                120
+                221
+              ];
+            };
+            list_selected = {
+              base = [
+                204
+                204
+                204
+              ];
+              background = [
+                40
+                44
+                52
+              ];
+              emphasis_0 = [
+                209
+                154
+                102
+              ];
+              emphasis_1 = [
+                86
+                182
+                194
+              ];
+              emphasis_2 = [
+                152
+                195
+                121
+              ];
+              emphasis_3 = [
+                198
+                120
+                221
+              ];
+            };
+            list_unselected = {
+              base = [
+                204
+                204
+                204
+              ];
+              background = [
+                29
+                32
+                37
+              ];
+              emphasis_0 = [
+                209
+                154
+                102
+              ];
+              emphasis_1 = [
+                86
+                182
+                194
+              ];
+              emphasis_2 = [
+                152
+                195
+                121
+              ];
+              emphasis_3 = [
+                198
+                120
+                221
+              ];
+            };
+            frame_selected = {
+              base = [
+                152
+                195
+                121
+              ];
+              background = [ 0 ];
+              emphasis_0 = [
+                209
+                154
+                102
+              ];
+              emphasis_1 = [
+                86
+                182
+                194
+              ];
+              emphasis_2 = [
+                198
+                120
+                221
+              ];
+              emphasis_3 = [ 0 ];
+            };
+            frame_highlight = {
+              base = [
+                209
+                154
+                102
+              ];
+              background = [ 0 ];
+              emphasis_0 = [
+                198
+                120
+                221
+              ];
+              emphasis_1 = [
+                209
+                154
+                102
+              ];
+              emphasis_2 = [
+                209
+                154
+                102
+              ];
+              emphasis_3 = [
+                209
+                154
+                102
+              ];
+            };
+            exit_code_success = {
+              base = [
+                152
+                195
+                121
+              ];
+              background = [ 0 ];
+              emphasis_0 = [
+                86
+                182
+                194
+              ];
+              emphasis_1 = [
+                29
+                32
+                37
+              ];
+              emphasis_2 = [
+                198
+                120
+                221
+              ];
+              emphasis_3 = [
+                97
+                175
+                239
+              ];
+            };
+            exit_code_error = {
+              base = [
+                190
+                80
+                70
+              ];
+              background = [ 0 ];
+              emphasis_0 = [
+                229
+                192
+                123
+              ];
+              emphasis_1 = [ 0 ];
+              emphasis_2 = [ 0 ];
+              emphasis_3 = [ 0 ];
+            };
+            multiplayer_user_colors = {
+              player_1 = [
+                198
+                120
+                221
+              ];
+              player_2 = [
+                97
+                175
+                239
+              ];
+              player_3 = [ 0 ];
+              player_4 = [
+                229
+                192
+                123
+              ];
+              player_5 = [
+                86
+                182
+                194
+              ];
+              player_6 = [ 0 ];
+              player_7 = [
+                190
+                80
+                70
+              ];
+              player_8 = [ 0 ];
+              player_9 = [ 0 ];
+              player_10 = [ 0 ];
+            };
+          };
+        };
+        theme = "janis";
       };
       layouts = {
         janis = {
@@ -511,14 +928,41 @@
               {
                 tab = {
                   _props = {
-                    name = "main";
+                    name = "zsh";
                     split_direction = "vertical";
                   };
                   _children = [
                     {
                       pane = {
                         _props = {
-                          size = "20%";
+                          size = "50%";
+                          name = "zsh1";
+                        };
+                        command = "zsh";
+                      };
+                    }
+                    {
+                      pane = {
+                        _props = {
+                          size = "50%";
+                          name = "zsh2";
+                        };
+                        command = "zsh";
+                      };
+                    }
+                  ];
+                };
+              }
+              {
+                tab = {
+                  _props = {
+                    name = "files";
+                  };
+                  _children = [
+                    {
+                      pane = {
+                        _props = {
+                          size = "100%";
                           name = "files";
                           cwd = "/";
                         };
@@ -526,15 +970,6 @@
                           cwd = "/";
                           location = "zellij:strider";
                         };
-                      };
-                    }
-                    {
-                      pane = {
-                        _props = {
-                          size = "80%";
-                          name = "zsh";
-                        };
-                        command = "zsh";
                       };
                     }
                   ];
@@ -598,6 +1033,10 @@
 
     bat = {
       enable = true;
+      config = {
+        theme = "TwoDark";
+        style = "changes,header";
+      };
     };
 
     fzf = {
@@ -639,6 +1078,10 @@
         alias ff="fastfetch"
         alias cat="bat -p"
         alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+
+        alias -g cat="bat"
+        alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+        alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
         # Cognigy config:
         alias deploy='~/code/cognigy/scripts/deploy.sh'
