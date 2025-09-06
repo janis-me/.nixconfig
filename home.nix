@@ -85,6 +85,8 @@
       # TODO: Find a way to support firefox and thunderbird with custom options AND gpu support
       (config.lib.nixGL.wrap thunderbird)
       (config.lib.nixGL.wrap steam)
+      winetricks
+      protontricks
       (config.lib.nixGL.wrap gdlauncher-carbon)
       (config.lib.nixGL.wrap discord)
       # (config.lib.nixGL.wrap warp-terminal)
@@ -284,6 +286,7 @@
           unifiedjs.vscode-mdx
           mechatroner.rainbow-csv
           astro-build.astro-vscode
+          dbaeumer.vscode-eslint
         ];
         keybindings = [
           {
@@ -1069,8 +1072,13 @@
         theme = "janis";
       };
       initContent = lib.mkOrder 1000 ''
+        export PNPM_HOME="$HOME/.pnpm"
+        export PATH="$PNPM_HOME:$PATH"
         export NVM_DIR="$([ -z "''${XDG_CONFIG_HOME-}" ] && printf %s "''${HOME}/.nvm" || printf %s "''${XDG_CONFIG_HOME}/nvm")"
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+        export STEAM_DIR=/home/janis/.steam/steam/
+        export PROTON_VERSION="Proton Experimental"
 
         alias switch='home-manager switch --impure --flake ~/.nixconfig/.#default'
         alias sync-obsidian='(cd ~/.obsidian && git pull && git add -A && git commit -m "$(date "+%A %W %Y %X")" && git push) &'
