@@ -477,10 +477,15 @@
       # attachExistingSession = true;
       settings = {
         copy_command = "xclip -selection clipboard";
-        show_startup_tips = false;
-        simplified_ui = true;
         default_shell = "zsh";
         default_layout = "janis";
+        # default_mode = "locked";
+
+        on_force_close = "quit";
+        show_startup_tips = false;
+        simplified_ui = true;
+        scrollback_editor = "vim";
+
         themes = {
           janis = {
             text_unselected = {
@@ -1038,13 +1043,16 @@
       enable = true;
       config = {
         theme = "TwoDark";
-        style = "changes,header";
       };
     };
 
     fzf = {
       enable = true;
       enableZshIntegration = true;
+    };
+
+    ripgrep = {
+      enable = true;
     };
 
     zsh = {
@@ -1106,6 +1114,16 @@
         presets = "gpu0:0:default,cpu:0:default,proc:0:default";
         shown_boxes = "cpu gpu0 proc mem net";
       };
+    };
+
+    neovim = {
+      enable = true;
+      coc = {
+        enable = true;
+      };
+      withNodeJs = true;
+      viAlias = true;
+      vimAlias = true;
     };
 
     rofi = {
