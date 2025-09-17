@@ -94,6 +94,7 @@
       (config.lib.nixGL.wrap teams-for-linux)
       (config.lib.nixGL.wrap postman)
       (config.lib.nixGL.wrap obs-studio)
+      (config.lib.nixGL.wrap filezilla)
       # (config.lib.nixGL.wrap chromium)
     ];
   };
