@@ -1155,9 +1155,5 @@
       userName = "Janis Jansen";
       userEmail = "oss@janis.me";
     };
-
-    ssh = {
-      enable = true;
-    };
   };
 }
