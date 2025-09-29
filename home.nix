@@ -41,6 +41,7 @@
     stateVersion = "25.05"; # Please read the comment before changing.
 
     sessionVariables = {
+      VISUAL = "nano";
       EDITOR = "code";
     };
 
@@ -95,6 +96,7 @@
       (config.lib.nixGL.wrap postman)
       (config.lib.nixGL.wrap obs-studio)
       (config.lib.nixGL.wrap filezilla)
+      (config.lib.nixGL.wrap vlc)
       # (config.lib.nixGL.wrap chromium)
     ];
   };
@@ -1094,6 +1096,7 @@
         alias tree="l -TR"
         alias ff="fastfetch"
         alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+        alias copy="xclip -sel clip"
 
         alias -g cat="bat"
         alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
@@ -1103,6 +1106,7 @@
         alias deploy='~/code/cognigy/scripts/deploy.sh'
         alias hu="cd ~/code/cognigy/cognigy-ai-app && helm upgrade --debug --install --create-namespace --namespace cognigy-ai --values values-local.out.yaml cognigy-ai ."
         alias destroy='~/code/cognigy/scripts/destroy.sh'
+        alias refresh-certs="sudo microk8s refresh-certs --cert ca.crt"
       '';
     };
 
