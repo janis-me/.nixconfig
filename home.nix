@@ -56,9 +56,9 @@
         enable = true;
         source = ./sources/janis.zsh-theme;
       };
-      ".config/teams-for-linux/settings.json" = {
+      ".config/teams-for-linux/config.json" = {
         enable = true;
-        source = ./sources/teams-settings.json;
+        source = ./sources/teams-config.json;
       };
     };
 
