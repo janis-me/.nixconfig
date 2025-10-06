@@ -940,23 +940,13 @@
                 tab = {
                   _props = {
                     name = "zsh";
-                    split_direction = "vertical";
                   };
                   _children = [
                     {
                       pane = {
                         _props = {
-                          size = "50%";
-                          name = "zsh1";
-                        };
-                        command = "zsh";
-                      };
-                    }
-                    {
-                      pane = {
-                        _props = {
-                          size = "50%";
-                          name = "zsh2";
+                          size = "100%";
+                          name = "zsh";
                         };
                         command = "zsh";
                       };
