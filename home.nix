@@ -101,21 +101,12 @@
       (config.lib.nixGL.wrap obs-studio)
       (config.lib.nixGL.wrap filezilla)
       (config.lib.nixGL.wrap vlc)
-      # (config.lib.nixGL.wrap chromium)
     ];
   };
 
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
-
-    firefox = {
-      enable = true;
-      package = (config.lib.nixGL.wrap pkgs.firefox-bin);
-      nativeMessagingHosts = [
-        pkgs.firefoxpwa
-      ];
-    };
 
     keepassxc = {
       enable = true;
