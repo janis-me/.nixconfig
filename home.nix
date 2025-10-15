@@ -200,6 +200,12 @@
           "vsicons.dontShowNewVersionMessage" = true;
 
           "terminal.integrated.defaultProfile.linux" = "zsh";
+          "terminal.integrated.profiles.linux" = {
+            "zsh" = {
+              "path" = "$(which zsh)";
+              "args" = [ "-l" ];
+            };
+          };
           "terminal.integrated.persistentSessionReviveProcess" = "onExitAndWindowClose";
 
           "editor.stickyScroll.enabled" = true;
@@ -1049,9 +1055,6 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       autocd = true;
-      envExtra = ''
-        setxkbmap eu
-      '';
       oh-my-zsh = {
         enable = true;
         custom = "$HOME/.oh-my-custom";
@@ -1092,6 +1095,8 @@
         alias hu="cd ~/code/cognigy/cognigy-ai-app && helm upgrade --debug --install --create-namespace --namespace cognigy-ai --values values-local.out.yaml cognigy-ai ."
         alias destroy='~/code/cognigy/scripts/destroy.sh'
         alias refresh-certs="sudo microk8s refresh-certs --cert ca.crt"
+
+        setxkbmap eu
       '';
     };
 

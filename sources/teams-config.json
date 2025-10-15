@@ -1,5 +1,5 @@
 {
-  "closeAppOnCross": true, // test
+  "closeAppOnCross": true,
   "disableNotifications": false,
   "customCSSName": "compactDark",
   "defaultURLHandler": "firefox"
