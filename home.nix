@@ -291,6 +291,7 @@
           mechatroner.rainbow-csv
           astro-build.astro-vscode
           dbaeumer.vscode-eslint
+          vue.volar
         ];
         keybindings = [
           {
