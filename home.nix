@@ -209,7 +209,7 @@
           "terminal.integrated.persistentSessionReviveProcess" = "onExitAndWindowClose";
 
           "editor.stickyScroll.enabled" = true;
-
+          "editor.selectionClipboard" = false;
           "workbench.editor.wrapTabs" = true;
           "workbench.colorTheme" = "One Dark Pro Night Flat";
 
@@ -351,6 +351,15 @@
             "key" = "alt+delete";
             "command" = "deleteWordPartRight";
             "when" = "editorTextFocus && !editorReadonly";
+          }
+          {
+            "key" = "ctrl+`";
+            "command" = "workbench.action.terminal.focus";
+          }
+          {
+            "key" = "ctrl+`";
+            "command" = "workbench.action.focusActiveEditorGroup";
+            "when" = "terminalFocus";
           }
         ];
         globalSnippets = {
@@ -1150,8 +1159,10 @@
     git = {
       enable = true;
       settings = {
-        userName = "Janis Jansen";
-        userEmail = "oss@janis.me";
+        user = {
+          name = "Janis Jansen";
+          email = "oss@janis.me";
+        };
       };
     };
   };
