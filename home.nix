@@ -90,11 +90,11 @@
       # TODO: Find a way to support firefox and thunderbird with custom options AND gpu support
       (config.lib.nixGL.wrap thunderbird)
       (config.lib.nixGL.wrap steam)
+      via
       winetricks
       protontricks
       (config.lib.nixGL.wrap gdlauncher-carbon)
       (config.lib.nixGL.wrap discord)
-      # (config.lib.nixGL.wrap warp-terminal)
       (config.lib.nixGL.wrap libreoffice)
       (config.lib.nixGL.wrap teams-for-linux)
       (config.lib.nixGL.wrap postman)
@@ -292,6 +292,8 @@
           astro-build.astro-vscode
           dbaeumer.vscode-eslint
           vue.volar
+          ms-azuretools.vscode-containers
+          ms-vscode-remote.remote-containers
         ];
         keybindings = [
           {
@@ -1147,8 +1149,10 @@
 
     git = {
       enable = true;
-      userName = "Janis Jansen";
-      userEmail = "oss@janis.me";
+      settings = {
+        userName = "Janis Jansen";
+        userEmail = "oss@janis.me";
+      };
     };
   };
 }
